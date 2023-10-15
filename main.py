@@ -12,7 +12,7 @@ if os.path.isfile("temp.model"):
     model.load("temp.model")
 
 if TRAINING:
-    model.learn(total_timesteps=100000)
+    model.learn(total_timesteps=1000000)
     model.save("temp.model")
 
 num_steps = 1500
@@ -25,7 +25,8 @@ for i in range(num_steps):
     obs, reward, done, truncs, info = env.step(action)
     env.render()
     # VecEnv resets automatically
-    # if done:
-    #   obs = env.reset()
+    print(info)
+    if done:
+        obs, _ = env.reset()
 
 env.close()

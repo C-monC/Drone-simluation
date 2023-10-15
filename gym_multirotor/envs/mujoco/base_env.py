@@ -52,7 +52,7 @@ class UAVBaseEnv(MujocoEnv, utils.EzPickle, ABC):
                  xml_name="quadrotor_plus.xml",
                  frame_skip=5,
                  error_tolerance=0.05,
-                 max_time_steps=1000,
+                 max_time_steps=2000,
                  randomize_reset=True,
                  disorient=True,
                  sample_SO3=True,
@@ -69,7 +69,7 @@ class UAVBaseEnv(MujocoEnv, utils.EzPickle, ABC):
                  linear_velocity_reward_constant=0.01,
                  angular_velocity_reward_constant=0.001,
                  action_reward_constant=0.0025,
-                 reward_for_staying_alive=5.0,
+                 reward_for_staying_alive=2.0,
                  reward_scaling_coefficient=1.0,
                  ):
         xml_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "assets", xml_name))
