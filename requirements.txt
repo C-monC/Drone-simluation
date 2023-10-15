@@ -1,0 +1,8 @@
+numpy
+gym
+scipy
+matplotlib
+stable-baselines3[extra]
+PyYAML
+mujoco
+mujoco-py
