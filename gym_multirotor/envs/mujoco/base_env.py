@@ -2,9 +2,9 @@ import os
 import math
 from abc import ABC
 import numpy as np
-from gym import spaces
-from gym import utils
-from gym.envs.mujoco import MujocoEnv
+from gymnasium import spaces
+from gymnasium import utils
+from gymnasium.envs.mujoco import MujocoEnv
 from gym_multirotor import utils as multirotor_utils
 
 
@@ -200,7 +200,8 @@ class UAVBaseEnv(MujocoEnv, utils.EzPickle, ABC):
         self.gravity_mag = 9.81     # default value of acceleration due to gravity
 
         utils.EzPickle.__init__(self)
-        MujocoEnv.__init__(self, xml_path, frame_skip)
+        # obs is a 18-dim numpy
+        MujocoEnv.__init__(self, xml_path, frame_skip, observation_space=spaces.Box(low=-np.inf, high=np.inf, shape=(18,), dtype=np.float32))
 
         self.gravity_mag = float(abs(self.model.opt.gravity[2]))
 

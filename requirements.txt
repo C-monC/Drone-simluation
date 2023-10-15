@@ -5,4 +5,4 @@ matplotlib
 stable-baselines3[extra]
 PyYAML
 mujoco
-mujoco-py
+cython<3

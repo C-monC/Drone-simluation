@@ -1,7 +1,7 @@
 import numpy as np
 from gym_multirotor import utils
 from gym_multirotor.envs.mujoco.base_env import UAVBaseEnv
-from gym.envs.registration import EnvSpec
+from gymnasium.envs.registration import EnvSpec
 
 
 class QuadrotorPlusHoverEnv(UAVBaseEnv):
@@ -87,7 +87,7 @@ class QuadrotorPlusHoverEnv(UAVBaseEnv):
         done = self.is_done(ob)
         if self.observation_noise_std:
             ob += np.random.uniform(low=-self.observation_noise_std, high=self.observation_noise_std, size=ob.shape)
-        return ob, reward, done, info
+        return ob, reward, done, None, info
 
     def _get_obs(self):
         """

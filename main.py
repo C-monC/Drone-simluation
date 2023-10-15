@@ -1,5 +1,5 @@
 from gym_multirotor.envs.mujoco.quadrotor_plus_hover import QuadrotorPlusHoverEnv
-import gym
+import gymnasium as gym
 import os
 from stable_baselines3 import PPO
 
