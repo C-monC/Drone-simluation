@@ -73,7 +73,7 @@ class UAVBaseEnv(MujocoEnv, utils.EzPickle, ABC):
                  reward_scaling_coefficient=1.0,
                  ):
         xml_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "assets", xml_name))
-
+        self.render_mode = "human"
         self.error_tolerance = error_tolerance
         """float: Error tolerance. Default is `0.05`."""
 
@@ -201,7 +201,7 @@ class UAVBaseEnv(MujocoEnv, utils.EzPickle, ABC):
 
         utils.EzPickle.__init__(self)
         # obs is a 18-dim numpy
-        MujocoEnv.__init__(self, xml_path, frame_skip, observation_space=spaces.Box(low=-np.inf, high=np.inf, shape=(18,), dtype=np.float32))
+        MujocoEnv.__init__(self, xml_path, frame_skip, observation_space=spaces.Box(low=-np.inf, high=np.inf, shape=(18,), dtype=np.float32), render_mode='human')
 
         self.gravity_mag = float(abs(self.model.opt.gravity[2]))
 
